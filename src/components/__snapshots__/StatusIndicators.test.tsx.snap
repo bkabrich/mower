@@ -1,0 +1,109 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StatusIndicators > matches snapshot when connected and teleop 1`] = `
+<div
+  class="flex flex-wrap gap-4 rounded-lg border border-slate-600 bg-slate-800/80 p-4"
+>
+  <div
+    class="flex items-center gap-2"
+  >
+    <span
+      aria-hidden="true"
+      class="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-500"
+    />
+    <span
+      class="text-sm text-slate-300"
+    >
+      Connection
+    </span>
+    <span
+      class="text-sm font-medium text-slate-100"
+    >
+      Connected
+    </span>
+  </div>
+  <div
+    class="flex items-center gap-2"
+  >
+    <span
+      class="text-sm text-slate-300"
+    >
+      Mode
+    </span>
+    <span
+      class="rounded px-2 py-0.5 text-sm font-medium capitalize bg-amber-500/20 text-amber-400"
+    >
+      teleop
+    </span>
+  </div>
+  <div
+    class="flex items-center gap-2"
+  >
+    <span
+      class="text-sm text-slate-300"
+    >
+      Speed
+    </span>
+    <span
+      class="text-sm font-medium tabular-nums text-slate-100"
+    >
+      2.5
+       m/s
+    </span>
+  </div>
+</div>
+`;
+
+exports[`StatusIndicators > matches snapshot when disconnected and idle 1`] = `
+<div
+  class="flex flex-wrap gap-4 rounded-lg border border-slate-600 bg-slate-800/80 p-4"
+>
+  <div
+    class="flex items-center gap-2"
+  >
+    <span
+      aria-hidden="true"
+      class="h-2.5 w-2.5 shrink-0 rounded-full bg-red-500 animate-pulse"
+    />
+    <span
+      class="text-sm text-slate-300"
+    >
+      Connection
+    </span>
+    <span
+      class="text-sm font-medium text-slate-100"
+    >
+      Disconnected
+    </span>
+  </div>
+  <div
+    class="flex items-center gap-2"
+  >
+    <span
+      class="text-sm text-slate-300"
+    >
+      Mode
+    </span>
+    <span
+      class="rounded px-2 py-0.5 text-sm font-medium capitalize bg-slate-600 text-slate-400"
+    >
+      idle
+    </span>
+  </div>
+  <div
+    class="flex items-center gap-2"
+  >
+    <span
+      class="text-sm text-slate-300"
+    >
+      Speed
+    </span>
+    <span
+      class="text-sm font-medium tabular-nums text-slate-100"
+    >
+      0.0
+       m/s
+    </span>
+  </div>
+</div>
+`;

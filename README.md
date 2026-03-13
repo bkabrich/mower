@@ -1,6 +1,6 @@
 # Vineyard Mower Dashboard MVP
 
-React + Vite + TypeScript dashboard for monitoring a vineyard mower: map (GPS), battery gauge, and status (mode, speed, connection). Includes placeholder for rosbridge WebSocket and teleop joystick.
+React + Vite + TypeScript dashboard for monitoring a vineyard mower: map (GPS), battery gauge, and status (mode, speed, connection). Includes placeholder for rosbridge WebSocket and teleop joystick. Test suite uses Vitest and React Testing Library with high coverage.
 
 ## Setup
 
@@ -8,6 +8,14 @@ React + Vite + TypeScript dashboard for monitoring a vineyard mower: map (GPS), 
 npm install
 npm run dev
 ```
+
+## Testing
+
+- **Run tests (watch):** `npm test`
+- **Run tests once:** `npm test -- --run`
+- **Run with coverage:** `npm run test:coverage`
+
+Coverage report is written to `coverage/` (HTML, LCOV, JSON). Open `coverage/index.html` in a browser to view the interactive report. Thresholds are set to 95% for statements, branches, functions, and lines (see `vitest.config.ts`).
 
 ## Add teleop joystick (nipplejs)
 
@@ -28,3 +36,5 @@ npm run dev
 - `npm run dev` — start dev server
 - `npm run build` — production build
 - `npm run preview` — preview production build
+- `npm test` — run tests in watch mode
+- `npm run test:coverage` — run tests once and generate coverage report

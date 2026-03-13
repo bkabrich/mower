@@ -1,0 +1,141 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dashboard > matches snapshot 1`] = `
+<div
+  class="mx-auto max-w-6xl space-y-6"
+>
+  <div
+    class="grid gap-6 lg:grid-cols-3"
+  >
+    <section
+      class="lg:col-span-2"
+    >
+      <h2
+        class="mb-2 text-sm font-medium uppercase tracking-wide text-slate-400"
+      >
+        Map
+      </h2>
+      <div
+        data-testid="mower-map"
+      >
+        Map at 38.29, -122.28
+      </div>
+    </section>
+    <section
+      class="flex flex-col gap-6"
+    >
+      <div>
+        <h2
+          class="mb-2 text-sm font-medium uppercase tracking-wide text-slate-400"
+        >
+          Battery
+        </h2>
+        <div
+          class="flex flex-col items-center gap-1 "
+        >
+          <svg
+            aria-label="Battery 72%"
+            class="h-24 w-24 sm:h-28 sm:w-28"
+            viewBox="0 0 100 100"
+          >
+            <circle
+              class="text-slate-700"
+              cx="50"
+              cy="50"
+              fill="none"
+              r="45"
+              stroke="currentColor"
+              stroke-width="8"
+            />
+            <circle
+              class="transition-[stroke-dashoffset] duration-300"
+              cx="50"
+              cy="50"
+              fill="none"
+              r="45"
+              stroke="#22c55e"
+              stroke-dasharray="282.7433388230814"
+              stroke-dashoffset="79.16813487046281"
+              stroke-linecap="round"
+              stroke-width="8"
+              transform="rotate(-90 50 50)"
+            />
+          </svg>
+          <span
+            class="text-sm font-medium tabular-nums text-slate-300"
+          >
+            72
+            %
+          </span>
+        </div>
+      </div>
+      <div
+        class="flex-1"
+      >
+        <h2
+          class="mb-2 text-sm font-medium uppercase tracking-wide text-slate-400"
+        >
+          Status
+        </h2>
+        <div
+          class="flex flex-wrap gap-4 rounded-lg border border-slate-600 bg-slate-800/80 p-4"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <span
+              aria-hidden="true"
+              class="h-2.5 w-2.5 shrink-0 rounded-full bg-red-500 animate-pulse"
+            />
+            <span
+              class="text-sm text-slate-300"
+            >
+              Connection
+            </span>
+            <span
+              class="text-sm font-medium text-slate-100"
+            >
+              Disconnected
+            </span>
+          </div>
+          <div
+            class="flex items-center gap-2"
+          >
+            <span
+              class="text-sm text-slate-300"
+            >
+              Mode
+            </span>
+            <span
+              class="rounded px-2 py-0.5 text-sm font-medium capitalize bg-slate-600 text-slate-400"
+            >
+              idle
+            </span>
+          </div>
+          <div
+            class="flex items-center gap-2"
+          >
+            <span
+              class="text-sm text-slate-300"
+            >
+              Speed
+            </span>
+            <span
+              class="text-sm font-medium tabular-nums text-slate-100"
+            >
+              0.0
+               m/s
+            </span>
+          </div>
+        </div>
+      </div>
+      <button
+        class="rounded bg-slate-600 px-3 py-1.5 text-sm text-slate-200 hover:bg-slate-500"
+        type="button"
+      >
+        Simulate GPS update
+      </button>
+    </section>
+  </div>
+</div>
+`;

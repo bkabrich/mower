@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BatteryGauge > matches snapshot at 50% 1`] = `
+<div
+  class="flex flex-col items-center gap-1 "
+>
+  <svg
+    aria-label="Battery 50%"
+    class="h-24 w-24 sm:h-28 sm:w-28"
+    viewBox="0 0 100 100"
+  >
+    <circle
+      class="text-slate-700"
+      cx="50"
+      cy="50"
+      fill="none"
+      r="45"
+      stroke="currentColor"
+      stroke-width="8"
+    />
+    <circle
+      class="transition-[stroke-dashoffset] duration-300"
+      cx="50"
+      cy="50"
+      fill="none"
+      r="45"
+      stroke="#22c55e"
+      stroke-dasharray="282.7433388230814"
+      stroke-dashoffset="141.3716694115407"
+      stroke-linecap="round"
+      stroke-width="8"
+      transform="rotate(-90 50 50)"
+    />
+  </svg>
+  <span
+    class="text-sm font-medium tabular-nums text-slate-300"
+  >
+    50
+    %
+  </span>
+</div>
+`;

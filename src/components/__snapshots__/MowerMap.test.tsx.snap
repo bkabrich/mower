@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MowerMap > matches snapshot with position 1`] = `
+<div
+  class="overflow-hidden rounded-lg border border-slate-600 "
+>
+  <div
+    data-center="[38.29,-122.28]"
+    data-testid="map-container"
+  >
+    <div
+      data-testid="tile-layer"
+    />
+    <div
+      data-position="[38.29,-122.28]"
+      data-testid="marker"
+    >
+      <div
+        data-testid="popup"
+      >
+        Mower position
+      </div>
+    </div>
+  </div>
+</div>
+`;

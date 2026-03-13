@@ -1,25 +1,40 @@
-# Cursor Prompt Ledger – Vineyard Mower Dashboard MVP
+Scaffold a basic React + Vite + TypeScript project structure for a vineyard mower monitoring dashboard MVP, including comprehensive unit/integration testing aiming for near-100% coverage.
 
-## Rules / Always-Apply Instructions
-- Use React 18 + Vite + TypeScript
-- Tailwind for styling unless specified otherwise
-- Leaflet + react-leaflet with OSM tiles (no Google Maps)
-- rosbridge WebSocket at ws://localhost:9090 (local) or wss://[mower-ip]:9090 (real)
-- Safety: never publish cmd_vel unless teleop explicitly enabled
-- Prefer hooks (useEffect, useRef) for WebSocket / gamepad logic
+Project requirements:
+- Use React 18+, Vite, TypeScript
+- Responsive layout (use Tailwind CSS or basic CSS modules)
+- Main Dashboard page/component showing:
+  - Leaflet map with a marker for mower GPS position (use react-leaflet)
+  - Simple battery gauge (SVG circle or progress bar)
+  - Status indicators (e.g., mode: idle/teleop, speed, connection status)
+- Placeholder for WebSocket connection to rosbridge (commented code to subscribe to /gps/fix and update map marker)
 
-## Prompt Sequence (in order applied – newest at bottom)
+Testing setup:
+- Configure Jest + @testing-library/react + @testing-library/jest-dom + @testing-library/user-event
+- Add test scripts in package.json: "test": "vitest", "test:coverage": "vitest --coverage"
+- Create a tests/ folder (or __tests__ subfolders) with:
+  - Unit tests for Dashboard component (rendering, props, battery gauge display, status text)
+  - Tests for map component (renders Leaflet map, marker appears with correct position prop)
+  - Mock WebSocket connection and test subscription logic / message handling
+  - Snapshot tests where appropriate
+  - Aim for 95%+ coverage on components, hooks, and utilities
+- Use vitest (preferred with Vite) instead of plain Jest if easier setup
 
-1. Initial Scaffold (2026-03-11)
-   Prompt: "Scaffold a basic React + Vite + TypeScript project structure for a vineyard mower monitoring dashboard MVP. Include: App.tsx responsive layout, Dashboard page with Leaflet map + marker, battery gauge, status indicators, placeholder for rosbridge WebSocket..."
+Install instructions / dependencies:
+- Start with: npm create vite@latest . -- --template react-ts
+- Then: npm install react-leaflet leaflet nipplejs
+- Testing: npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom @vitest/coverage-v8
+- Configure vitest.config.ts with jsdom environment and coverage reporter
 
-2. GPS + rosbridge Subscription (2026-03-11)
-   Prompt: "In vineyard-mower-dashboard: Implement WebSocket connection to rosbridge_suite at ws://localhost:9090. Subscribe to /gps/fix (sensor_msgs/NavSatFix). Update Leaflet marker with lat/lng. Add connection status badge, auto-reconnect..."
+Generate all key files including:
+- package.json (with scripts)
+- vite.config.ts
+- vitest.config.ts
+- tsconfig.json
+- src/App.tsx
+- src/main.tsx
+- src/components/Dashboard.tsx (or similar)
+- Example test files (e.g., Dashboard.test.tsx)
+- README with "npm test" and "npm run test:coverage" instructions
 
-3. Gamepad + Teleop Publishing (planned – to be filled when joystick arrives)
-   Prompt: "..."
-
-## Open Changes / Ideas
-- Add vineyard boundary GeoJSON placeholder
-- Implement WebRTC video stream for forward camera
-- Add velocity scaling slider UI
+After generation, explain how to run tests and view coverage report.
