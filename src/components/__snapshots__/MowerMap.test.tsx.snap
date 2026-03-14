@@ -5,14 +5,14 @@ exports[`MowerMap > matches snapshot with position 1`] = `
   class="overflow-hidden rounded-lg border border-slate-600 "
 >
   <div
-    data-center="[38.29,-122.28]"
+    data-center="[39.32,-75.926]"
     data-testid="map-container"
   >
     <div
       data-testid="tile-layer"
     />
     <div
-      data-position="[38.29,-122.28]"
+      data-position="[39.32,-75.926]"
       data-testid="marker"
     >
       <div

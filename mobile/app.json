@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Mower App",
+    "slug": "mower-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1e293b"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vineyard.mowerapp",
+      "config": {
+        "googleMapsApiKey": "YOUR_GOOGLE_MAPS_KEY_IF_NEEDED"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1e293b"
+      },
+      "package": "com.vineyard.mowerapp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_GOOGLE_MAPS_KEY_IF_NEEDED"
+        }
+      }
+    },
+    "scheme": "mowerapp"
+  }
+}

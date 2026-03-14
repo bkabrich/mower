@@ -5,7 +5,7 @@ import type { GpsFix } from '../types/mower'
 import 'leaflet/dist/leaflet.css'
 
 /** Default center (example vineyard coords). */
-const DEFAULT_CENTER: LatLngExpression = [38.29, -122.28]
+const DEFAULT_CENTER: LatLngExpression = [39.32, -75.926]
 const DEFAULT_ZOOM = 16
 
 /** Fix default icon path for react-leaflet in bundlers. */

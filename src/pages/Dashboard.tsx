@@ -1,20 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { MowerMap } from '../components/MowerMap'
 import { BatteryGauge } from '../components/BatteryGauge'
 import { StatusIndicators } from '../components/StatusIndicators'
+import { useMowerStore } from '../store/mowerStore'
 import type { MowerState } from '../types/mower'
 
 /** Default/placeholder state for UI. */
-const initialState: MowerState = {
+export const initialState: MowerState = {
   mode: 'idle',
   speed: 0,
   batteryPercent: 72,
   connected: false,
-  gps: { latitude: 38.29, longitude: -122.28 },
+  gps: { latitude: 39.32, longitude: -75.926 },
 }
 
-export function Dashboard() {
-  const [state, setState] = useState<MowerState>(initialState)
+export interface DashboardProps {
+  /** Optional initial state for testing. */
+  initialState?: MowerState
+}
+
+export function Dashboard({ initialState: propsInitialState }: DashboardProps = {}) {
+  const [state, setState] = useState<MowerState>(propsInitialState ?? initialState)
+  const { setConnected, setBattery, setLastKnownPosition } = useMowerStore()
+
+  useEffect(() => {
+    setConnected(state.connected)
+    setBattery(state.batteryPercent)
+    setLastKnownPosition(state.gps)
+  }, [state.connected, state.batteryPercent, state.gps, setConnected, setBattery, setLastKnownPosition])
 
   // -------------------------------------------------------------------------
   // WebSocket / rosbridge placeholder
@@ -84,11 +98,26 @@ export function Dashboard() {
           </div>
           <button
             type="button"
+            onClick={() => setState((s) => ({ ...s, connected: !s.connected }))}
+            className={`rounded px-3 py-1.5 text-sm font-medium ${
+              state.connected ? 'bg-amber-600 text-white hover:bg-amber-500' : 'bg-emerald-600 text-white hover:bg-emerald-500'
+            }`}
+          >
+            {state.connected ? 'Disconnect' : 'Connect'}
+          </button>
+          <button
+            type="button"
             onClick={simulateGpsUpdate}
             className="rounded bg-slate-600 px-3 py-1.5 text-sm text-slate-200 hover:bg-slate-500"
           >
             Simulate GPS update
           </button>
+          <Link
+            to="/map"
+            className="rounded bg-emerald-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-emerald-500"
+          >
+            Map &amp; mowing control →
+          </Link>
         </section>
       </div>
     </div>

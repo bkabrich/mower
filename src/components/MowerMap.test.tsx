@@ -3,9 +3,9 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { MowerMap } from './MowerMap'
 
-const mockMarker = vi.fn(() => null)
-const mockPopup = vi.fn(() => null)
-const mockTileLayer = vi.fn(() => null)
+const mockMarker = vi.fn((_props?: object) => null)
+const mockPopup = vi.fn((_props?: object) => null)
+const mockTileLayer = vi.fn((_props?: object) => null)
 const mockUseMap = vi.fn()
 
 vi.mock('react-leaflet', () => ({
@@ -67,7 +67,7 @@ describe('MowerMap', () => {
     render(<MowerMap position={null} />)
     const container = screen.getByTestId('map-container')
     const center = JSON.parse(container.getAttribute('data-center') ?? '[]')
-    expect(center).toEqual([38.29, -122.28])
+    expect(center).toEqual([39.32, -75.926])
   })
 
   it('uses position as center when position is provided', () => {
@@ -117,7 +117,7 @@ describe('MowerMap', () => {
 
   it('matches snapshot with position', () => {
     const { container } = render(
-      <MowerMap position={{ latitude: 38.29, longitude: -122.28 }} />
+      <MowerMap position={{ latitude: 39.32, longitude: -75.926 }} />
     )
     expect(container.firstChild).toMatchSnapshot()
   })

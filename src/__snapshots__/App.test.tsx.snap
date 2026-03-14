@@ -2,16 +2,32 @@
 
 exports[`App > matches snapshot 1`] = `
 <div
-  class="min-h-screen bg-slate-900 text-slate-100 flex flex-col"
+  class="flex min-h-screen flex-col bg-slate-900 text-slate-100"
 >
   <header
-    class="shrink-0 border-b border-slate-700 bg-slate-800 px-4 py-3"
+    class="flex shrink-0 items-center justify-between border-b border-slate-700 bg-slate-800 px-4 py-3"
   >
     <h1
       class="text-lg font-semibold sm:text-xl"
     >
       Vineyard Mower Dashboard
     </h1>
+    <nav
+      class="flex gap-4"
+    >
+      <a
+        class="text-sm font-medium text-emerald-400"
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        class="text-sm font-medium text-slate-400 hover:text-slate-200"
+        href="/map"
+      >
+        Map & Mowing
+      </a>
+    </nav>
   </header>
   <main
     class="flex-1 overflow-auto p-4 sm:p-6"
@@ -56,8 +72,8 @@ exports[`App > matches snapshot 1`] = `
                       <img
                         alt=""
                         class="leaflet-tile"
-                        src="https://a.tile.openstreetmap.org/16/10507/25211.png"
-                        style="width: 256px; height: 256px; left: -155px; top: -252px;"
+                        src="https://a.tile.openstreetmap.org/16/18946/24971.png"
+                        style="width: 256px; height: 256px; left: -24px; top: -93px;"
                       />
                     </div>
                   </div>
@@ -278,11 +294,23 @@ exports[`App > matches snapshot 1`] = `
             </div>
           </div>
           <button
+            class="rounded px-3 py-1.5 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-500"
+            type="button"
+          >
+            Connect
+          </button>
+          <button
             class="rounded bg-slate-600 px-3 py-1.5 text-sm text-slate-200 hover:bg-slate-500"
             type="button"
           >
             Simulate GPS update
           </button>
+          <a
+            class="rounded bg-emerald-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-emerald-500"
+            href="/map"
+          >
+            Map & mowing control →
+          </a>
         </section>
       </div>
     </div>

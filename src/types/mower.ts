@@ -8,6 +8,15 @@ export interface GpsFix {
   altitude?: number
 }
 
+/** Single point in a path (lat/lng for map display) */
+export interface PathPoint {
+  lat: number
+  lng: number
+}
+
+/** Predefined mowing pattern */
+export type MowingPattern = 'stripes' | 'spiral' | 'perimeter' | 'random' | null
+
 /** Dashboard state from ROS / rosbridge */
 export interface MowerState {
   mode: MowerMode

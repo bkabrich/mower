@@ -7,3 +7,8 @@
   height: 100%;
   width: 100%;
 }
+
+.leaflet-marker-icon.mower-marker {
+  background: none !important;
+  border: none !important;
+}
