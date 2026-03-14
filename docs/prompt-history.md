@@ -192,5 +192,7 @@ Focus on making recording smooth and demo-ready. State assumptions clearly (e.g.
 - **Record Path While Driving** as the current demo/development behavior (no automatic stripes/spiral/perimeter for now).
 - Single property boundary, recording UI (Start/Stop/Clear path, Simulate drive), mowing along recorded path, progress and toast.
 - **Web app** as the primary target (`npm run dev` from project root). Mobile app in `mobile/` has the same behavior but is secondary for this phase.
+- **Testing:** Vitest, test file locations, and coverage notes are in MAP_MOWING_REQUIREMENTS.md §8. Run tests with `npm test -- --run` or `npm run test:coverage`.
+
 This file is kept as a record of the original prompts only.
 

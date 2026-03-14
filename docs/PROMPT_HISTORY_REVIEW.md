@@ -76,7 +76,15 @@ This document compares **`docs/prompt-history.md`** with the current codebase an
 
 ---
 
-## 8. Changes applied to docs/prompt-history.md
+## 8. Requirements doc (MAP_MOWING_REQUIREMENTS.md)
+
+- **§8 Testing** added: Vitest setup, test commands, list of test files (MapControlScreen, Dashboard, mowerStore, geoUtils, pathGeneration, components, App, websocket), coverage aims and the single uncovered block (Simulate Drive interval).
+- **§7 Helpers and code locations:** Dashboard and its optional `initialState` prop for tests added.
+- **§9** = Prompt, **§10** = Reconciliation, **§11** = Future (section numbers shifted after inserting Testing).
+
+---
+
+## 9. Changes applied to docs/prompt-history.md
 
 1. **Reference:** Added at top of polish section: "For Map & Mowing behavior, follow MAP_MOWING_REQUIREMENTS.md in this folder."
 2. **Inset:** "2% inset" → "8% inset; see MAP_MOWING_REQUIREMENTS.md".
@@ -88,7 +96,7 @@ This document compares **`docs/prompt-history.md`** with the current codebase an
 
 ---
 
-## 9. File locations
+## 10. File locations
 
 | Document | Path |
 |----------|------|

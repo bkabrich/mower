@@ -75,7 +75,7 @@ Use this document as the single source of truth when implementing or re-implemen
 
 ## 6. Acceptance criteria (repeatable check)
 
-Use these to verify the web app; see **§9** for mapping to code.
+Use these to verify the web app; see **§10** for mapping to code.
 
 - [ ] Only **one** green polygon (property boundary) is visible by default; no extra red/second box unless no-go zones are explicitly added.
 - [ ] Property boundary uses the four specified GPS corners; mower icon is at the **centroid** when the screen loads.
@@ -93,10 +93,27 @@ Use these to verify the web app; see **§9** for mapping to code.
 - **`src/lib/geoUtils.ts`:** `haversineMeters`, `shouldAddPoint` (min distance 1.5 m), `pathLengthMeters`, `positionAlongPath`.
 - **`src/store/mowerStore.ts`:** State and actions above; `PROPERTY_BOUNDARY`, `NO_GO_ZONES`, `DEFAULT_POSITION`.
 - **`src/pages/MapControlScreen.tsx`:** Map, recording UI, polylines (recorded + mowing), simulate drive, Start/Stop mowing, confirmation modal, toast.
+- **`src/pages/Dashboard.tsx`:** Home screen: map, battery gauge, status, Connect/Disconnect, Simulate GPS update, link to Map & Mowing. Exports `initialState` and optional prop `initialState` for testing.
 
 ---
 
-## 8. Prompt (copy-paste for AI or developer)
+## 8. Testing
+
+- **Framework:** Vitest with `@testing-library/react`, `@testing-library/user-event`, jsdom. Coverage via `@vitest/coverage-v8`.
+- **Commands:** `npm test` (watch), `npm test -- --run` (single run), `npm run test:coverage` (coverage report). Run from project root (`mower/`).
+- **Test files (web):**
+  - **`src/pages/MapControlScreen.test.tsx`** – Map & Mowing screen: map, recording, polylines, modal, toast, Connect/Disconnect, Pause/Stop, no-go zones (mocked). Mocks: `react-leaflet`, `leaflet`, `leaflet/dist/leaflet.css`; store `NO_GO_ZONES` overridden for no-go polygon test.
+  - **`src/pages/Dashboard.test.tsx`** – Dashboard: headings, map, battery, status, Connect/Disconnect, Simulate GPS, store sync, link to map, `initialState` with `gps: null` for branch coverage. Wrapped in `MemoryRouter`.
+  - **`src/store/mowerStore.test.ts`** – Store: state, setters, recording, `addPositionToPath`, `startMowing` / `stopMowing` / `pauseMowing`, progress simulation (fake timers), toast on completion.
+  - **`src/lib/geoUtils.test.ts`** – `haversineMeters`, `shouldAddPoint`, `pathLengthMeters`, `positionAlongPath` (including empty path, single point, past end, degenerate segment).
+  - **`src/lib/pathGeneration.test.ts`** – `generatePathForPattern`, `clampPathToBoundary`; all patterns and fallback when frame is degenerate.
+  - **`src/components/MowerMap.test.tsx`**, **`BatteryGauge.test.tsx`**, **`StatusIndicators.test.tsx`** – Component unit tests.
+  - **`src/App.test.tsx`** – App layout and routing; **`tests/websocket-subscription.test.ts`** – WebSocket subscription logic.
+- **Coverage:** Aim for high coverage on `src/`; global thresholds in `vitest.config.ts` (e.g. 95% statements/branches/functions/lines). MapControlScreen has one uncovered block (Simulate Drive `setInterval` callback, lines 108–111) due to fake-timer/userEvent interaction; all other Map & Mowing behavior is covered.
+
+---
+
+## 9. Prompt (copy-paste for AI or developer)
 
 ```
 Implement the Map & Mowing screen for the Vineyard Mower **web app** (Vite + Leaflet, npm run dev) according to docs/MAP_MOWING_REQUIREMENTS.md. In short:
@@ -109,12 +126,12 @@ Implement the Map & Mowing screen for the Vineyard Mower **web app** (Vite + Lea
 
 4. UI: battery + connection on map; overlay "Mower not connected – connect first" when disconnected. Confirmation dialog before start mowing.
 
-5. Verify against the Acceptance criteria in MAP_MOWING_REQUIREMENTS.md.
+5. Verify against the Acceptance criteria (§6) and run tests (§8): `npm test -- --run` / `npm run test:coverage`.
 ```
 
 ---
 
-## 9. Reconciliation with actual code (web app)
+## 10. Reconciliation with actual code (web app)
 
 The following table maps requirements to the current implementation so the doc and code stay aligned. Verified against `src/` as of last update.
 
@@ -148,11 +165,11 @@ The following table maps requirements to the current implementation so the doc a
 
 ---
 
-## 10. Future / optional (not current)
+## 11. Future / optional (not current)
 
 - **Automatic path patterns** (stripes, spiral, perimeter, random) and **cutting width / paths parallel to boundary** are documented in earlier sections of the repo history; code exists in `src/lib/pathGeneration.ts` for future use. Current demo uses **Record Path** only.
 - **Mobile app** (`mobile/`): Same Record Path behavior is implemented there; primary development focus for this phase is the web app.
 
 ---
 
-*Last updated: Record Path While Driving as current behavior; web app as primary target; acceptance criteria and prompt aligned; §9 added to reconcile requirements with actual code.*
+*Last updated: Record Path While Driving as current behavior; web app as primary target; acceptance criteria and prompt aligned; §8 Testing added (Vitest, test file list, coverage notes); §9 = Prompt, §10 = Reconciliation, §11 = Future; Dashboard and test locations documented.*
